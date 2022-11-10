@@ -254,6 +254,7 @@ restartButton.addEventListener("click", () => {
   startButton.classList.add("hide");
   gameContainer.style.opacity = "1.0";
   timeValue.style.visibility = "visible";
+  showCards.style.visibility = "visible";
 
   // Zamanlayıcıyı başlat
   interval = setInterval(timeGenerator, 1000);
@@ -274,6 +275,7 @@ stopButton.addEventListener(
 function restart() {
   seconds = 0;
   minutes = 0;
+  showCards.style.visibility = "hidden";
   timeValue.style.visibility = "hidden";
   gameContainer.style.opacity = "0.3";
   stopButton.style.visibility = "hidden";
