@@ -35,10 +35,11 @@ body {
 .showClass {
   text-align: right;
   margin-bottom: 1.2em;
+  height: 50px;
 }
 .showCard {
   width: 85px;
-  height: 20px;
+  height: 40px;
   padding: 1em 1.5em;
   font-weight: bold;
   background-color: #5c9761;
