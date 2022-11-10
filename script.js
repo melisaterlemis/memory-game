@@ -246,6 +246,7 @@ restartButton.addEventListener("click", () => {
   movesCount = 0;
   seconds = 0;
   minutes = 0;
+  count = 0;
   // buton düğmelerinin görünürlüğünü kontrol eder
   controls.classList.add("hide");
   restartContainer.classList.add("hide");

@@ -32,6 +32,9 @@ body {
 .stats-container span {
   font-weight: 600;
 }
+.moves {
+  top: 20px;
+}
 .showClass {
   text-align: right;
   margin-bottom: 1.2em;
