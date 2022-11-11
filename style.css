@@ -35,6 +35,9 @@ body {
 .moves {
   top: 20px;
 }
+.count {
+  top: 10px;
+}
 .showClass {
   text-align: right;
   margin-bottom: 1.2em;
@@ -111,6 +114,11 @@ body {
   background-color: #7bca7b;
   top: 0;
   bottom: 0;
+}
+.card-container img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
 }
 button {
   border: none;

@@ -1,4 +1,5 @@
 const moves = document.getElementById("moves-count");
+const countt = document.getElementById("show-Count");
 const timeValue = document.getElementById("time");
 const showCards = document.getElementById("showCards");
 const startButton = document.getElementById("start");
@@ -57,7 +58,9 @@ const movesCounter = () => {
   movesCount += 1;
   moves.innerHTML = `<span>Moves:</span>${movesCount}`;
 };
-
+const RemaingShowCount = (a) => {
+  countt.innerHTML = `<span>Show:${a < 4 ? 3 - a : 0}</span>`;
+};
 // öğeler dizisinden rastgele nesneler seç
 const generateRandom = (size = 4) => {
   //geçici diziye gerçek diziyi atadık
@@ -221,7 +224,10 @@ const matrixGenerator = (cardValues, size = 10) => {
 };
 showCards.addEventListener("click", () => {
   count++;
-  if (count >= 4) alert("Tahmin Hakkiniz Bitti");
+  if (count >= 4) {
+    alert("Tahmin Hakkiniz Bitti");
+  }
+  RemaingShowCount(count);
 });
 
 //Oyunu başlatmak
@@ -229,6 +235,7 @@ startButton.addEventListener("click", () => {
   movesCount = 0;
   seconds = 0;
   minutes = 0;
+  count = 0;
   // buton düğmelerinin görünürlüğünü kontrol eder
   controls.classList.add("hide");
   restartContainer.classList.add("hide");
@@ -241,6 +248,7 @@ startButton.addEventListener("click", () => {
   interval = setInterval(timeGenerator, 1000);
   //ilk hareketler
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
+  RemaingShowCount(count);
   initializer();
 });
 //oyunu yeniden başlatma ekranı
