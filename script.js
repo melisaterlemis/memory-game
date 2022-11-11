@@ -265,12 +265,13 @@ restartButton.addEventListener("click", () => {
   gameContainer.style.opacity = "1.0";
   timeValue.style.visibility = "visible";
   showCards.style.visibility = "visible";
-
+  countt.style.visibility = "visible";
   // Zamanlayıcıyı başlat
   interval = setInterval(timeGenerator, 1000);
   //ilk hareketler
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
   initializer();
+  RemaingShowCount(count);
 });
 //Oyunu durdur
 stopButton.addEventListener(
@@ -291,6 +292,7 @@ function restart() {
   stopButton.style.visibility = "hidden";
   restartContainer.classList.remove("hide");
   restartButton.classList.remove("hide");
+  countt.style.visibility = "hidden";
 }
 
 // Değerleri ve işlev çağrılarını başlat

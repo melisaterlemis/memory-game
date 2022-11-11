@@ -7,6 +7,11 @@
 body {
   background-color: #7bca7b;
 }
+::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
 .wrapper {
   box-sizing: content-box;
   width: 34.87em;
