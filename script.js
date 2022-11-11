@@ -16,6 +16,7 @@ let firstCard = false;
 let secondCard = false;
 let disableDeck = false;
 let count = 0;
+let trueCardCount = 0;
 let correct = new Audio("./sounds/surprise-sound-effect-99300.mp3");
 let wrong = new Audio("./sounds/negative_beeps-6008.mp3");
 let whoosh = new Audio("./sounds/whoosh-transitions-sfx-03-118230.mp3");
@@ -150,6 +151,7 @@ const matrixGenerator = (cardValues, size = 10) => {
 
                 firstCard.classList.add("matched");
                 secondCard.classList.add("matched");
+                trueCardCount++;
 
                 disableDeck = false;
                 function checked() {
@@ -209,25 +211,31 @@ const matrixGenerator = (cardValues, size = 10) => {
     }, 1000);
     //3 kere kartları açma hakkı
     showCards.addEventListener("click", () => {
-      if (count < 4) {
-        let showCrads = setTimeout(() => {
-          card.classList.add("flipped");
-          setTimeout(() => {
-            if (!card.classList.contains("matched")) {
-              card.classList.remove("flipped");
-            }
-          }, 2000);
-        }, 900);
+      if (trueCardCount > 0) {
+        if (count < 4) {
+          let showCrads = setTimeout(() => {
+            card.classList.add("flipped");
+            setTimeout(() => {
+              if (!card.classList.contains("matched")) {
+                card.classList.remove("flipped");
+              }
+            }, 2000);
+          }, 900);
+        }
       }
     });
   });
 };
 showCards.addEventListener("click", () => {
-  count++;
-  if (count >= 4) {
-    alert("Tahmin Hakkiniz Bitti");
+  if (trueCardCount > 0) {
+    count++;
+    if (count >= 4) {
+      alert("Tahmin Hakkiniz Bitti");
+    }
+    RemaingShowCount(count);
+  } else {
+    alert("Bir tane dogru cift acmalisin.");
   }
-  RemaingShowCount(count);
 });
 
 //Oyunu başlatmak
@@ -236,6 +244,7 @@ startButton.addEventListener("click", () => {
   seconds = 0;
   minutes = 0;
   count = 0;
+  trueCardCount = 0;
   // buton düğmelerinin görünürlüğünü kontrol eder
   controls.classList.add("hide");
   restartContainer.classList.add("hide");
@@ -257,6 +266,7 @@ restartButton.addEventListener("click", () => {
   seconds = 0;
   minutes = 0;
   count = 0;
+  trueCardCount = 0;
   // buton düğmelerinin görünürlüğünü kontrol eder
   controls.classList.add("hide");
   restartContainer.classList.add("hide");
@@ -286,6 +296,8 @@ stopButton.addEventListener(
 function restart() {
   seconds = 0;
   minutes = 0;
+  count = 0;
+  trueCardCount = 0;
   showCards.style.visibility = "hidden";
   timeValue.style.visibility = "hidden";
   gameContainer.style.opacity = "0.3";
