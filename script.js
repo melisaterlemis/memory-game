@@ -196,6 +196,8 @@ const matrixGenerator = (cardValues, size = 10) => {
                     disableDeck = false;
                   }, 1000);
                 }, 900);
+                tempFirst.classList.remove("animate__shakeX");
+                tempSecond.classList.remove("animate__shakeX");
               }
             }
           }
